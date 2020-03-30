@@ -7,7 +7,7 @@ module Feedback
     attr_accessor :author_name
     belongs_to :author, class_name: "User"
 
-    before_validation :set_author
+    # before_validation :set_author
 
     enum status: {
         pending: 0,
@@ -30,11 +30,11 @@ module Feedback
         high: 3,
         urgent: 4,
     }
-    
+
     private
-    def set_author
-      self.author = User.find_by(name: author_name)
-    end
+    # def set_author
+    #   self.author = User.find_by(name: author_name)
+    # end
 
   end
 end

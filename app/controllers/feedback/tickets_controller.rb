@@ -17,6 +17,7 @@ module Feedback
     # GET /tickets/new
     def new
       @ticket = Ticket.new
+      skip_policy_scope
     end
 
     # GET /tickets/1/edit
@@ -25,12 +26,27 @@ module Feedback
 
     # POST /tickets
     def create
+      # @ticket = Ticket.new(ticket_params)
+      #
+      # if @ticket.save
+      #   redirect_to @ticket, notice: 'Ticket was successfully created.'
+      # else
+      #   render :new
+      # end
+
       @ticket = Ticket.new(ticket_params)
 
-      if @ticket.save
-        redirect_to @ticket, notice: 'Ticket was successfully created.'
-      else
-        render :new
+      @ticket.user = current_user
+      skip_policy_scope
+
+      respond_to do |format|
+        if @ticket.save
+          format.html { redirect_to @ticket, notice: "Thanks for the feedback!" }
+          # format.json { render :show, status: :created, ticket: @ticket }
+        else
+          format.html { render :new }
+          # format.json { render json: @ticket.errors, status: :unprocessable_entity }
+        end
       end
     end
 

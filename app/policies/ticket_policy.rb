@@ -1,4 +1,4 @@
-class FeedbackPolicy < WingPolicy
+class TicketPolicy < ApplicationPolicy
   def show?
     true
   end
