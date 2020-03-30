@@ -1,0 +1,42 @@
+<div data-controller="feedback">
+  <%= bootstrap_form_with model: @ticket, local: true do |form| %>
+
+    <% if current_user.admin? && @ticket.persisted? %>
+      <p>
+        <strong>From:</strong>
+        <%= @ticket.user %>
+      </p>
+
+      <p>
+        <%= @ticket.text %>
+      </p>
+
+      <% if current_user.admin? %>
+        <div class="row">
+          <%= form.select :category, Ticket.categories.keys.to_a, wrapper_class: "col-md-6"  %>
+          <%= form.select :priority, Ticket.priorities.keys.to_a, wrapper_class: "col-md-6"  %>
+        </div>
+
+        <div class="row">
+          <%= form.select :impact, 1..10, wrapper_class: "col-4" %>
+          <%= form.select :confidence, 1..10, wrapper_class: "col-4" %>
+          <%= form.select :ease, 1..10, wrapper_class: "col-4" %>
+        </div>
+
+        <%= form.select :status, Ticket.statuses.keys.to_a, {}, { data: { target: "feedback.status", action: "change->feedback#changeStatus" } } %>
+        <%= form.text_field :title, label: 'Changelog title', wrapper: { class: (@ticket.closed? ? '' : 'd-none') }, data: { target: "feedback.title" } %>
+
+        <%= form.collection_select :owner_id, User.where(super_admin: true), :id, :email, { include_blank: true, label: 'Owner' } %>
+      <% end %>
+
+    <% else %>
+      <%= form.rich_text_area :text, label: 'Feedback' %>
+      <%= form.file_field :attachments, multiple: true %>
+    <% end %>
+
+    <br/>
+
+    <%#= link_to 'Cancel', feedback_index_path, class: 'btn btn-light' %>
+    <%= form.submit 'Submit', class:"btn btn-primary" %>
+  <% end %>
+</div><!-- .feedback -->

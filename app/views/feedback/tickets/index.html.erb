@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tickets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Text</th>
+      <th>Response</th>
+      <th>Status</th>
+      <th>Version</th>
+      <th>Notify</th>
+      <th>Category</th>
+      <th>Priority</th>
+      <th>Reported version</th>
+      <th>Closed at</th>
+      <th>Title</th>
+      <th>Confidence</th>
+      <th>Impact</th>
+      <th>Ease</th>
+      <th>Ice score</th>
+      <th>User</th>
+      <th>Owner</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.name %></td>
+        <td><%= ticket.email %></td>
+        <td><%= ticket.text %></td>
+        <td><%= ticket.response %></td>
+        <td><%= ticket.status %></td>
+        <td><%= ticket.version %></td>
+        <td><%= ticket.notify %></td>
+        <td><%= ticket.category %></td>
+        <td><%= ticket.priority %></td>
+        <td><%= ticket.reported_version %></td>
+        <td><%= ticket.closed_at %></td>
+        <td><%= ticket.title %></td>
+        <td><%= ticket.confidence %></td>
+        <td><%= ticket.impact %></td>
+        <td><%= ticket.ease %></td>
+        <td><%= ticket.ice_score %></td>
+        <td><%= ticket.user_id %></td>
+        <td><%= ticket.owner_id %></td>
+        <td><%= link_to 'Show', ticket %></td>
+        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ticket', new_ticket_path, class: "btn btn-primary"%>

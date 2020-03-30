@@ -1,0 +1,100 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <b>Author:</b>
+  <%= @ticket.author.name %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @ticket.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @ticket.email %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @ticket.text %>
+</p>
+
+<p>
+  <strong>Response:</strong>
+  <%= @ticket.response %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @ticket.status %>
+</p>
+
+<p>
+  <strong>Version:</strong>
+  <%= @ticket.version %>
+</p>
+
+<p>
+  <strong>Notify:</strong>
+  <%= @ticket.notify %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @ticket.category %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @ticket.priority %>
+</p>
+
+<p>
+  <strong>Reported version:</strong>
+  <%= @ticket.reported_version %>
+</p>
+
+<p>
+  <strong>Closed at:</strong>
+  <%= @ticket.closed_at %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @ticket.title %>
+</p>
+
+<p>
+  <strong>Confidence:</strong>
+  <%= @ticket.confidence %>
+</p>
+
+<p>
+  <strong>Impact:</strong>
+  <%= @ticket.impact %>
+</p>
+
+<p>
+  <strong>Ease:</strong>
+  <%= @ticket.ease %>
+</p>
+
+<p>
+  <strong>Ice score:</strong>
+  <%= @ticket.ice_score %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @ticket.user_id %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @ticket.owner_id %>
+</p>
+
+<%= render @ticket.comments %>
+<%= render "feedback/comments/form" %>
+
+<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+<%= link_to 'Back', tickets_path %>

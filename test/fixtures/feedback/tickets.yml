@@ -1,0 +1,41 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  email: MyString
+  text: MyText
+  response: MyText
+  status: 1
+  version: MyString
+  notify: false
+  category: 1
+  priority: 1
+  reported_version: MyString
+  closed_at: 2020-03-30 15:23:59
+  title: MyString
+  confidence: 1
+  impact: 1
+  ease: 1
+  ice_score: 1
+  user: one
+  owner: one
+
+two:
+  name: MyString
+  email: MyString
+  text: MyText
+  response: MyText
+  status: 1
+  version: MyString
+  notify: false
+  category: 1
+  priority: 1
+  reported_version: MyString
+  closed_at: 2020-03-30 15:23:59
+  title: MyString
+  confidence: 1
+  impact: 1
+  ease: 1
+  ice_score: 1
+  user: two
+  owner: two
