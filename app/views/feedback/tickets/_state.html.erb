@@ -1,0 +1,13 @@
+<div class="<%= ticket.class.name.to_s %>-category" data-toggle="tooltip" data-placement="bottom" title="<%= ticket.category&.humanize %>">
+  <% if ticket.uncategorized? %>
+    <i class="fas fa-asterisk fa-2x text-primary"></i>
+  <% elsif ticket.bug? %>
+    <i class="fas fa-bug fa-2x text-danger"></i>
+  <% elsif ticket.feature? %>
+    <i class="fas fa-trophy fa-2x text-warning"></i>
+  <% elsif ticket.question? %>
+    <i class="fas fa-question-circle fa-2x text-info"></i>
+  <% elsif ticket.support? %>
+    <i class="fas fa-concierge-bell fa-2x text-success"></i>
+  <% end %>
+</div>

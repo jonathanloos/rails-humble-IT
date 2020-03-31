@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.authors     = ["Jonathan Loos"]
   spec.email       = ["jonathan@rcafinnovation.ca"]
   spec.homepage    = "https://github.com/RCAFAWC/sitrep"
-  spec.summary     = "Designed to help manage the feedback for the SITREP application"
+  spec.summary     = "Designed to help manage a basic feedback ticketing system."
   spec.description = "Description of Feedback."
   spec.license     = "MIT"
 

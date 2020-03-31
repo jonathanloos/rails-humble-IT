@@ -1,7 +1,8 @@
 module Feedback
   class Ticket < ApplicationRecord
     has_many :comments
-
+    has_rich_text :text
+    
     belongs_to :user, optional: true
 
     enum status: {

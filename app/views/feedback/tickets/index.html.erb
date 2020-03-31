@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<div class="container">
+<div class="container tester">
   <div class="card">
     <div class="card-body">
       <h1 class="card-title">Feedback</h1>
@@ -20,14 +18,14 @@
             <%= link_to ticket_path(ticket), style: "text-decoration: none;" do %>
               <div class="row ticket-row ml-1">
                 <div class="col-1">
-                  <%= ticket.category %>
+                  <%= render partial: 'state', locals: {ticket: ticket} %>
                 </div>
                 <div class="col-11">
                   <div class="row">
                     <p class="text-muted mb-0"><%= ticket.user %></p>
                   </div>
                   <div class="row">
-                    <h5><%= ticket.id %>: <%= ticket.text.truncate(128) %></h5>
+                    <h5>Feedback <%= ticket.id %>: <%= strip_tags(ticket.text.to_s).truncate(128) %></h5>
                   </div>
                   <div class="row">
                     <p class="text-muted">
