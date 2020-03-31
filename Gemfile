@@ -15,7 +15,7 @@ gemspec
 gem 'byebug', group: [:development, :test]
 
 # presentation
-gem 'bootstrap', '~> 4.3.1'
+gem 'bootstrap', '~> 4.4.1'
 gem "bootstrap_form", ">= 4.2.0"
 gem 'bootstrap-datepicker-rails', '~> 1.8', '>= 1.8.0.1'
 gem 'font-awesome-sass', '~> 5.8.1'
@@ -23,3 +23,4 @@ gem 'better_errors', '~> 2.5', '>= 2.5.1'
 gem 'binding_of_caller'
 gem 'to_duration'
 gem 'browser', '~> 2.6', '>= 2.6.1'
+gem 'sass-rails'

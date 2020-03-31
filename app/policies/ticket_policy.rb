@@ -8,19 +8,19 @@ class TicketPolicy < ApplicationPolicy
   end
 
   def update?
-    @user.super_admin?
+    true
   end
 
   def destroy?
-    @user.super_admin?
+    true
   end
 
   def thanks?
-    create?
+    true
   end
 
   def assign?
-    @user.super_admin?
+    true
   end
 
   def stats?

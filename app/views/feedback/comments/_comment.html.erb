@@ -1,1 +1,8 @@
-<%= comment_counter + 1 %>. <%= comment.text %>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">
+      <strong><%= comment.user %></strong> commented <%= distance_of_time_in_words_to_now(comment.created_at) %> ago.
+    </h5>
+    <p class="card-text"><%= comment.text %></p>
+  </div>
+</div>

@@ -1,0 +1,103 @@
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFeedbackFeedbacks (20200330190234)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFeedbackFeedbacks (20200330190234)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "feedback" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "title" varchar, "email" varchar, "text" text, "response" text, "status" integer DEFAULT 0, "version" varchar, "notify" boolean, "user_id" integer, "category" integer DEFAULT 0, "owner_id" integer, "priority" integer DEFAULT 0, "impact" integer, "confidence" integer, "ease" integer, "ice_score" integer DEFAULT 0, "closed_at" datetime, "reported_version" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_feedback_on_user_id" ON "feedback" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_feedback_on_owner_id" ON "feedback" ("owner_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200330190234"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-30 19:13:49.658444"], ["updated_at", "2020-03-30 19:13:49.658444"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFeedbackTickets (20200330192359)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "feedback_tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "text" text, "response" text, "status" integer, "version" varchar, "notify" boolean, "category" integer, "priority" integer, "reported_version" varchar, "closed_at" datetime, "title" varchar, "confidence" integer, "impact" integer, "ease" integer, "ice_score" integer, "user_id" integer NOT NULL, "owner_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_9c1847e9c5"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_4e9890442e"
+FOREIGN KEY ("owner_id")
+  REFERENCES "owners" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_feedback_tickets_on_user_id" ON "feedback_tickets" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_feedback_tickets_on_owner_id" ON "feedback_tickets" ("owner_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200330192359"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFeedbackComments (20200330193234)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "feedback_comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "ticket_id" integer NOT NULL, "user_id" integer NOT NULL, "text" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_9d3e832131"
+FOREIGN KEY ("ticket_id")
+  REFERENCES "tickets" ("id")
+, CONSTRAINT "fk_rails_07519c3191"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_feedback_comments_on_ticket_id" ON "feedback_comments" ("ticket_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_feedback_comments_on_user_id" ON "feedback_comments" ("user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200330193234"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/feedback/tickets" for ::1 at 2020-03-31 08:17:25 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Feedback::TicketsController#index as HTML
+  [1m[36mFeedback::Ticket Load (0.5ms)[0m  [1m[34mSELECT "feedback_tickets".* FROM "feedback_tickets" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Feedback::Ticket Load (0.0ms)[0m  [1m[34mSELECT "feedback_tickets".* FROM "feedback_tickets" LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms | Allocations: 13816)
+
+
+  [1m[36mCACHE Feedback::Ticket Load (0.0ms)[0m  [1m[34mSELECT "feedback_tickets".* FROM "feedback_tickets" LIMIT ?[0m  [["LIMIT", 11]]
+
+NameError - undefined local variable or method `skip_policy_scope' for #<Feedback::TicketsController:0x00007fb0e8c65700>:
+
+Started POST "/feedback/__better_errors/60395437e152f637/variables" for ::1 at 2020-03-31 08:17:25 -0400
+  [1m[36mFeedback::Ticket Load (0.1ms)[0m  [1m[34mSELECT "feedback_tickets".* FROM "feedback_tickets" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Feedback::Ticket Load (0.0ms)[0m  [1m[34mSELECT "feedback_tickets".* FROM "feedback_tickets" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Feedback::Ticket Load (0.0ms)[0m  [1m[34mSELECT "feedback_tickets".* FROM "feedback_tickets" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/feedback/tickets" for ::1 at 2020-03-31 08:17:34 -0400
+Processing by Feedback::TicketsController#index as HTML
+  [1m[36mFeedback::Ticket Load (0.1ms)[0m  [1m[34mSELECT "feedback_tickets".* FROM "feedback_tickets" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Feedback::Ticket Load (0.0ms)[0m  [1m[34mSELECT "feedback_tickets".* FROM "feedback_tickets" LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 7108)
+
+
+  [1m[36mCACHE Feedback::Ticket Load (0.0ms)[0m  [1m[34mSELECT "feedback_tickets".* FROM "feedback_tickets" LIMIT ?[0m  [["LIMIT", 11]]
+
+NameError - undefined local variable or method `skip_policy_scope' for #<Feedback::TicketsController:0x00007fb0eae299b8>:
+
+Started POST "/feedback/__better_errors/7a26b8e817cc3b1b/variables" for ::1 at 2020-03-31 08:17:34 -0400
+  [1m[36mFeedback::Ticket Load (0.1ms)[0m  [1m[34mSELECT "feedback_tickets".* FROM "feedback_tickets" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Feedback::Ticket Load (0.0ms)[0m  [1m[34mSELECT "feedback_tickets".* FROM "feedback_tickets" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Feedback::Ticket Load (0.0ms)[0m  [1m[34mSELECT "feedback_tickets".* FROM "feedback_tickets" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/feedback/tickets" for ::1 at 2020-03-31 10:20:18 -0400
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Feedback::TicketsController#index as HTML
+  [1m[36mFeedback::Ticket Load (0.5ms)[0m  [1m[34mSELECT "feedback_tickets".* FROM "feedback_tickets" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Feedback::Ticket Load (0.0ms)[0m  [1m[34mSELECT "feedback_tickets".* FROM "feedback_tickets" LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.0ms | Allocations: 12089)
+
+
+  [1m[36mCACHE Feedback::Ticket Load (0.0ms)[0m  [1m[34mSELECT "feedback_tickets".* FROM "feedback_tickets" LIMIT ?[0m  [["LIMIT", 11]]
+
+NameError - undefined local variable or method `skip_policy_scope' for #<Feedback::TicketsController:0x00007fe28eb37d10>:
+
+Started POST "/feedback/__better_errors/b1983f7f4c055fe4/variables" for ::1 at 2020-03-31 10:20:18 -0400
+  [1m[36mFeedback::Ticket Load (0.3ms)[0m  [1m[34mSELECT "feedback_tickets".* FROM "feedback_tickets" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Feedback::Ticket Load (0.0ms)[0m  [1m[34mSELECT "feedback_tickets".* FROM "feedback_tickets" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Feedback::Ticket Load (0.0ms)[0m  [1m[34mSELECT "feedback_tickets".* FROM "feedback_tickets" LIMIT ?[0m  [["LIMIT", 11]]

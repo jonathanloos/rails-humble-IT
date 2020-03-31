@@ -1,8 +1,12 @@
-<h3>New comment</h3>
-<%= form_with(model: [@ticket, @ticket.comments.build], local: true) do |form| %>
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </p>
-  <%= form.submit %>
-<% end %>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">New Comment</h5>
+    <h6 class="card-subtitle mb-2 text-muted">By: <%= @ticket.user %></h6>
+    <%= bootstrap_form_with(model: [@ticket, @ticket.comments.build], remote: true) do |form| %>
+      <p>
+        <%= form.text_area :text %>
+      </p>
+      <%= form.submit class: "btn btn-primary"%>
+    <% end %>
+  </div>
+</div>

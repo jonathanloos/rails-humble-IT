@@ -1,100 +1,23 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <b>Author:</b>
-  <%= @ticket.author.name %>
-</p>
-<p>
-  <strong>Name:</strong>
-  <%= @ticket.name %>
-</p>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= @ticket.name %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= @ticket.user %></h6>
+      <div class="row" style="margin: 10px 0 20px 0;">
+        <% @ticket.attributes.each do |key, value| %>
+          <% if ["statue", "category", "priority", "impact", "confidence", "ease"].include?(key) %>
+            <button type="button" class="btn btn-primary" style="margin-left: 15px">
+              <%= key %> <span class="badge badge-light"><%= value %></span>
+            </button>
+          <% end %>
+        <% end %>
+      </div>
+      <h6>Feedback:</h6>
+      <p class="card-text"><%= @ticket.text %></p>
+      <%= render @ticket.comments.order(:created_at) %>
+      <%= render partial: 'feedback/comments/form', ticket: @ticket %>
+    </div>
+  </div>
+  <%= link_to 'Back', tickets_path, class: "btn btn-light" %>
+</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @ticket.email %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @ticket.text %>
-</p>
-
-<p>
-  <strong>Response:</strong>
-  <%= @ticket.response %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @ticket.status %>
-</p>
-
-<p>
-  <strong>Version:</strong>
-  <%= @ticket.version %>
-</p>
-
-<p>
-  <strong>Notify:</strong>
-  <%= @ticket.notify %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @ticket.category %>
-</p>
-
-<p>
-  <strong>Priority:</strong>
-  <%= @ticket.priority %>
-</p>
-
-<p>
-  <strong>Reported version:</strong>
-  <%= @ticket.reported_version %>
-</p>
-
-<p>
-  <strong>Closed at:</strong>
-  <%= @ticket.closed_at %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @ticket.title %>
-</p>
-
-<p>
-  <strong>Confidence:</strong>
-  <%= @ticket.confidence %>
-</p>
-
-<p>
-  <strong>Impact:</strong>
-  <%= @ticket.impact %>
-</p>
-
-<p>
-  <strong>Ease:</strong>
-  <%= @ticket.ease %>
-</p>
-
-<p>
-  <strong>Ice score:</strong>
-  <%= @ticket.ice_score %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @ticket.user_id %>
-</p>
-
-<p>
-  <strong>Owner:</strong>
-  <%= @ticket.owner_id %>
-</p>
-
-<%= render @ticket.comments %>
-<%= render "feedback/comments/form" %>
-
-<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<%= link_to 'Back', tickets_path %>
