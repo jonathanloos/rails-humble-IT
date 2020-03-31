@@ -1,23 +1,26 @@
 <div class="container">
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title"><%= @ticket.name %></h5>
+      <h5 class="card-title">Feedback: <%= @ticket.name %></h5>
+      <%= link_to 'Edit', edit_ticket_path(@ticket), class: "btn btn-primary float-right" %>
       <h6 class="card-subtitle mb-2 text-muted"><%= @ticket.user %></h6>
-      <div class="row" style="margin: 10px 0 20px 0;">
+      <div class="row mb-3 mt-1">
         <% @ticket.attributes.each do |key, value| %>
           <% if ["statue", "category", "priority", "impact", "confidence", "ease"].include?(key) %>
-            <button type="button" class="btn btn-primary" style="margin-left: 15px">
+            <button type="button" class="btn btn-primary btn-sm" style="margin-left: 15px">
               <%= key %> <span class="badge badge-light"><%= value %></span>
             </button>
           <% end %>
         <% end %>
       </div>
-      <h6>Feedback:</h6>
       <p class="card-text"><%= @ticket.text %></p>
-      <%= render @ticket.comments.order(:created_at) %>
+      <% if @ticket.comments.any? %>
+        <h5>Comments: </h5>
+        <%= render @ticket.comments.order(:created_at) %>
+      <% end %>
       <%= render partial: 'feedback/comments/form', ticket: @ticket %>
     </div>
+    <%= link_to 'Back', tickets_path, class: "btn btn-light mt-2" %>
   </div>
-  <%= link_to 'Back', tickets_path, class: "btn btn-light" %>
 </div>
 

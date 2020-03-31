@@ -1,57 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tickets</h1>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h1 class="card-title">Feedback</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Text</th>
-      <th>Response</th>
-      <th>Status</th>
-      <th>Version</th>
-      <th>Notify</th>
-      <th>Category</th>
-      <th>Priority</th>
-      <th>Reported version</th>
-      <th>Closed at</th>
-      <th>Title</th>
-      <th>Confidence</th>
-      <th>Impact</th>
-      <th>Ease</th>
-      <th>Ice score</th>
-      <th>User</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tickets.each do |ticket| %>
-      <tr>
-        <td><%= ticket.name %></td>
-        <td><%= ticket.email %></td>
-        <td><%= ticket.text %></td>
-        <td><%= ticket.response %></td>
-        <td><%= ticket.status %></td>
-        <td><%= ticket.version %></td>
-        <td><%= ticket.notify %></td>
-        <td><%= ticket.category %></td>
-        <td><%= ticket.priority %></td>
-        <td><%= ticket.reported_version %></td>
-        <td><%= ticket.closed_at %></td>
-        <td><%= ticket.title %></td>
-        <td><%= ticket.confidence %></td>
-        <td><%= ticket.impact %></td>
-        <td><%= ticket.ease %></td>
-        <td><%= ticket.ice_score %></td>
-        <td><%= ticket.user_id %></td>
-        <td><%= link_to 'Show', ticket %></td>
-        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<%= link_to 'New Ticket', new_ticket_path, class: "btn btn-primary"%>
+      <%= link_to 'New Ticket', new_ticket_path, class: "btn btn-primary" %>
+      <hr class="my-4">
+      <div class="row">
+<!--        <div class="col-2 border-right">-->
+<!--          <h5>Filters</h5>-->
+<!--        </div>-->
+        <div class="col-12">
+          <div class="row ml-1">
+            <!--        TODO: Add Search Bar-->
+            <h5>Tickets</h5>
+          </div>
+          <% @tickets.order("created_at DESC").each do |ticket| %>
+            <%= link_to ticket_path(ticket), style: "text-decoration: none;" do %>
+              <div class="row ticket-row ml-1">
+                <div class="col-1">
+                  <%= ticket.category %>
+                </div>
+                <div class="col-11">
+                  <div class="row">
+                    <p class="text-muted mb-0"><%= ticket.user %></p>
+                  </div>
+                  <div class="row">
+                    <h5><%= ticket.id %>: <%= ticket.text.truncate(128) %></h5>
+                  </div>
+                  <div class="row">
+                    <p class="text-muted">
+                      <%= time_ago_in_words(ticket.created_at) %> ago :
+                      <%= ticket.comments.count %> comments.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            <hr class="my-4">
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

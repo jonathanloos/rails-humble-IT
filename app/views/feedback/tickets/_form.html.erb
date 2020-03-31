@@ -1,4 +1,4 @@
-<%= form_with(model: ticket, local: true) do |form| %>
+<%= bootstrap_form_with(model: ticket, local: true) do |form| %>
   <% if ticket.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
@@ -11,97 +11,36 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <% if current_user.admin? && @ticket.persisted? %>
+    <p><strong>From:</strong><%= @ticket.user %></p>
 
-<!--  <div class="field">-->
-    <%#= form.label :email %>
-    <%#= form.text_field :email %>
-<!--  </div>-->
+    <p><%= @ticket.text %></p>
 
-  <div class="field">
-    <%= form.label :text %>
-    <%= form.text_area :text %>
-  </div>
+    <%# if current_user.superadmin? %>
+      <div class="row">
+        <%= form.select :category, Feedback::Ticket.categories.keys.to_a, wrapper_class: "col-md-6"  %>
+        <%= form.select :priority, Feedback::Ticket.priorities.keys.to_a, wrapper_class: "col-md-6"  %>
+      </div>
 
-<!--  <div class="field">-->
-    <%#= form.label :response %>
-    <%#= form.text_area :response %>
-<!--  </div>-->
+      <div class="row">
+        <%= form.select :impact, 1..10, wrapper_class: "col-4" %>
+        <%= form.select :confidence, 1..10, wrapper_class: "col-4" %>
+        <%= form.select :ease, 1..10, wrapper_class: "col-4" %>
+      </div>
 
-<!--  <div class="field">-->
-    <%#= form.label :status %>
-    <%#= form.number_field :status %>
-<!--  </div>-->
+      <%= form.select :status, Feedback::Ticket.statuses.keys.to_a, {}, { data: { target: "feedback.status", action: "change->feedback#changeStatus" } } %>
 
-<!--  <div class="field">-->
-    <%#= form.label :version %>
-    <%#= form.text_field :version %>
-<!--  </div>-->
+      <%#= form.collection_select :owner_id, User.where(super_admin: true), :id, :email, { include_blank: true, label: 'Owner' } %>
+    <%# end %>
 
-<!--  <div class="field">-->
-    <%#= form.label :notify %>
-    <%#= form.check_box :notify %>
-<!--  </div>-->
-
-<!--  <div class="field">-->
-    <%#= form.label :category %>
-    <%#= form.number_field :category %>
-<!--  </div>-->
-
-<!--  <div class="field">-->
-    <%#= form.label :priority %>
-    <%#= form.number_field :priority %>
-<!--  </div>-->
-
-<!--  <div class="field">-->
-    <%#= form.label :reported_version %>
-    <%#= form.text_field :reported_version %>
-<!--  </div>-->
-
-<!--  <div class="field">-->
-    <%#= form.label :closed_at %>
-    <%#= form.datetime_select :closed_at %>
-<!--  </div>-->
-
-<!--  <div class="field">-->
-    <%#= form.label :title %>
-    <%#= form.text_field :title %>
-<!--  </div>-->
-
-<!--  <div class="field">-->
-    <%#= form.label :confidence %>
-    <%#= form.number_field :confidence %>
-<!--  </div>-->
-
-<!--  <div class="field">-->
-    <%#= form.label :impact %>
-    <%#= form.number_field :impact %>
-<!--  </div>-->
-
-<!--  <div class="field">-->
-    <%#= form.label :ease %>
-    <%#= form.number_field :ease %>
-<!--  </div>-->
-
-<!--  <div class="field">-->
-    <%#= form.label :ice_score %>
-    <%#= form.number_field :ice_score %>
-<!--  </div>-->
-
-<!--  <div class="field">-->
-    <%#= form.label :user_id %>
-    <%#= form.text_field :user_id %>
-<!--  </div>-->
-
-<!--  <div class="field">-->
-    <%#= form.label :owner_id %>
-    <%#= form.text_field :owner_id %>
-<!--  </div>-->
+  <% else %>
+    <div class="field">
+      <%= form.text_area :text, label: 'Feedback' %>
+      <%#= form.file_field :attachments, multiple: true %>
+    </div>
+  <% end %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

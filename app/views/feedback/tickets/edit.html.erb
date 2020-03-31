@@ -1,6 +1,10 @@
-<h1>Editing Ticket</h1>
-
-<%= render 'form', ticket: @ticket %>
-
-<%= link_to 'Show', @ticket %> |
-<%= link_to 'Back', tickets_path %>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Feedback: <%= @ticket.name %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= time_ago_in_words(@ticket.created_at) %></h6>
+      <%= render 'form', ticket: @ticket %>
+      <%= link_to 'Back', @ticket, class: "btn btn-light"%>
+    </div>
+  </div>
+</div>
