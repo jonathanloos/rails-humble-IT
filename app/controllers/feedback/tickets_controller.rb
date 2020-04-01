@@ -17,7 +17,7 @@ module Feedback
     # GET /tickets/new
     def new
       @ticket = Ticket.new
-      authorize([:feedback,@ticket])
+      authorize(@ticket)
     end
 
     # GET /tickets/1/edit
