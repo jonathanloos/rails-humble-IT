@@ -7,6 +7,7 @@ module Feedback
     # GET /tickets
     def index
       @tickets = Ticket.all
+      skip_policy_scope
     end
 
     # GET /tickets/1
@@ -15,8 +16,8 @@ module Feedback
 
     # GET /tickets/new
     def new
-      authorize([:feedback,@ticket])
       @ticket = Ticket.new
+      authorize([:feedback,@ticket])
     end
 
     # GET /tickets/1/edit
