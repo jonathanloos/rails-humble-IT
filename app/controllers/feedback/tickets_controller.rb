@@ -16,8 +16,8 @@ module Feedback
 
     # GET /tickets/new
     def new
+      authorize(@ticket)
       @ticket = Ticket.new
-      skip_policy_scope
     end
 
     # GET /tickets/1/edit

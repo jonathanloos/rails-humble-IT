@@ -21,6 +21,21 @@ Or install it yourself as:
 $ gem install feedback
 ```
 
+##Routing
+In your main application's 'routes.rb' file, add the following:
+```bash
+Rails.application.routes.draw do
+    mount Feedback::Engine, at: "/feedback" <-- ADD
+    ...
+end
+```
+##Entra Dependencies
+````bash
+$ rails action_text:install
+````
+````bash
+$ rails db:migrate
+````
 ## Contributing
 Contribution directions go here.
 
