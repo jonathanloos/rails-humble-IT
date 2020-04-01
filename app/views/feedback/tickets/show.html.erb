@@ -17,7 +17,7 @@
           <% end %>
         </div>
       <%# end %>
-      <p class="card-text"><%= @ticket.text %></p>
+      <p class="card-text ticket-row"><%= @ticket.text %></p>
       <p class="text-muted">Status: <%= @ticket.status.humanize%></p>
       <% if @ticket.comments.any? %>
         <h5>Comments: </h5>
