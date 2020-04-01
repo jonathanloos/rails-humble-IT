@@ -14,6 +14,9 @@ gemspec
 # To use a debugger
 gem 'byebug', group: [:development, :test]
 
+# authorization
+gem 'pundit'
+
 # presentation
 gem 'bootstrap', '~> 4.4.1'
 gem "bootstrap_form", ">= 4.2.0"
