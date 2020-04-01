@@ -13,6 +13,7 @@ Gem::Specification.new do |spec|
   spec.summary     = "Designed to help manage a basic feedback ticketing system."
   spec.description = "Description of Feedback."
   spec.license     = "MIT"
+  spec.require_paths = ["lib"]
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
