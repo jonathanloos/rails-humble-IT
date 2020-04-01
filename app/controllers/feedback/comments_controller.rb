@@ -4,7 +4,7 @@ module Feedback
   class CommentsController < ApplicationController
     before_action :set_ticket, only: [:create]
     def create
-      skip_policy_scope
+      skip_authorization
       @comment = Comment.new(comment_params)
       @comment.ticket = @ticket
       @comment.user = current_user
