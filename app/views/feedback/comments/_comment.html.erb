@@ -8,5 +8,8 @@
   <div class="col-9">
     <p class="text-muted mb-0"><%= distance_of_time_in_words_to_now(comment.created_at) %> ago</p>
     <p><%= comment.text %></p>
+    <% comment.attachments.each do |attachment| %>
+      <li><%= link_to attachment.filename, main_app.rails_blob_path(attachment, disposition: "attachment") %></li>
+    <% end %>
   </div>
 </div>

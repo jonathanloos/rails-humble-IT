@@ -34,6 +34,9 @@ end
 $ rails action_text:install
 ````
 ````bash
+$ rails active_storage:install
+````
+````bash
 $ rails db:migrate
 ````
 ## Contributing

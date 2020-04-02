@@ -30,7 +30,7 @@ module Feedback
     def create
       skip_authorization
       @ticket = Ticket.new(ticket_params)
-
+      @ticket.attachments.attach(params[:ticket][:attachments])
       @ticket.user = current_user
       skip_policy_scope
 
@@ -70,7 +70,7 @@ module Feedback
 
       # Only allow a trusted parameter "white list" through.
       def ticket_params
-        params.require(:ticket).permit(:name, :email, :text, :response, :status, :version, :notify, :category, :priority, :reported_version, :closed_at, :title, :confidence, :impact, :ease, :ice_score, :user_id, :owner_id)
+        params.require(:ticket).permit(:name, :email, :text, :response, :status, :version, :notify, :category, :priority, :reported_version, :closed_at, :title, :confidence, :impact, :ease, :ice_score, :user_id, :owner_id, attachments:[])
       end
   end
 end

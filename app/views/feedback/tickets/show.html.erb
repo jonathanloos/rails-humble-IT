@@ -19,6 +19,11 @@
       <%# end %>
       
       <p class="card-text ticket-row"><%= @ticket.text %></p>
+
+      <% @ticket.attachments.each do |attachment| %>
+        <li><%= link_to attachment.filename, main_app.rails_blob_path(attachment, disposition: "attachment") %></li>
+      <% end %>
+
       <p class="text-muted">Status: <%= @ticket.status.humanize%></p>
       <% if @ticket.comments.any? %>
         <h5>Comments: </h5>

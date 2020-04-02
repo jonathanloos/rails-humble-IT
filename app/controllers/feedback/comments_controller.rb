@@ -8,6 +8,7 @@ module Feedback
       @comment = Comment.new(comment_params)
       @comment.ticket = @ticket
       @comment.user = current_user
+      @comment.attachments.attach(params[:comment][:attachments])
 
       respond_to do |format|
         if @comment.save
@@ -24,7 +25,7 @@ module Feedback
     end
 
     def comment_params
-      params.require(:comment).permit(:text)
+      params.require(:comment).permit(:text, attachments:[])
     end
   end
 end

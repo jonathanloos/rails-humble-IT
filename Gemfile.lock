@@ -111,6 +111,8 @@ GEM
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     popper_js (1.16.0)
+    pundit (2.1.0)
+      activesupport (>= 3.0.0)
     rack (2.2.2)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -185,10 +187,11 @@ DEPENDENCIES
   byebug
   feedback!
   font-awesome-sass (~> 5.8.1)
+  pundit
   sass-rails
   sqlite3
   to_duration
   trix
 
 BUNDLED WITH
-   2.1.2
+   2.1.4

@@ -12,6 +12,7 @@
       <p>
         <%= form.rich_text_area :text %>
       </p>
+      <%= form.file_field :attachments, multiple: true %>
       <%= form.submit class: "btn btn-primary"%>
     <% end %>
   </div>
