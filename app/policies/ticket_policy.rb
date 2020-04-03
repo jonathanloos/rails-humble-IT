@@ -13,7 +13,11 @@ module Feedback
     end
 
     def update?
-      true
+      @user.superadmin?
+    end
+
+    def edit?
+      update?
     end
 
     def destroy?

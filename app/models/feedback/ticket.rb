@@ -1,10 +1,18 @@
 module Feedback
   class Ticket < ApplicationRecord
+    include PgSearch::Model
+
     has_many :comments
     has_rich_text :text
     has_many_attached :attachments
 
     belongs_to :user, optional: true
+
+    pg_search_scope :search_all,
+                    associated_against: {
+                        rich_text_text: [:body],
+                        # feedback_comments: [:text]
+                    }
 
     enum status: {
         pending: 0,
@@ -28,5 +36,9 @@ module Feedback
         urgent: 4,
     }
 
+    private
+    def calculate_ice_score
+      self.ice_score = (self.impact || 0) + (self.confidence || 0) + (self.ease || 0)
+    end
   end
 end

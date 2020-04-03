@@ -6,10 +6,12 @@
     "@rails/activestorage": "^6.0.2-2",
     "@rails/ujs": "^6.0.2-2",
     "@rails/webpacker": "^5.0.1",
+    "alpinejs": "^2.2.5",
     "bootstrap": "^4.4.1",
     "expose-loader": "^0.7.5",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1",
+    "stimulus": "^1.1.1",
     "turbolinks": "^5.2.0"
   }
 }

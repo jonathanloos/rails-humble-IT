@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <% if current_user.admin? && @ticket.persisted? %>
+  <% if (current_user.admin? || current_user.superadmin?) && @ticket.persisted?%>
     <p><strong>From:</strong><%= @ticket.user %></p>
 
     <p><%= @ticket.text %></p>
@@ -30,9 +30,8 @@
 
       <%= form.select :status, Feedback::Ticket.statuses.keys.to_a, {}, { data: { target: "feedback.status", action: "change->feedback#changeStatus" } } %>
 
-      <%#= form.collection_select :owner_id, User.where(super_admin: true), :id, :email, { include_blank: true, label: 'Owner' } %>
+      <%= form.collection_select :owner_id, User.where(system_role: 'superadmin'), :id, :email, { include_blank: true, label: 'Owner' } %>
     <%# end %>
-
   <% else %>
     <div class="field">
       <%= form.rich_text_area :text, label: 'Feedback' %>

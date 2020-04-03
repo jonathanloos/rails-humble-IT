@@ -2,21 +2,24 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Feedback: <%= @ticket.id%></h5>
-      <%# if current_user.superadmin? %>
+      <% if @ticket.user == current_user %>
         <%= link_to 'Edit', edit_ticket_path(@ticket), class: "btn btn-primary float-right" %>
-      <%# end %>
+      <% end %>
       <h6 class="card-subtitle mb-2 text-muted"><%= @ticket.user %></h6>
-      <%# if current_user.superadmin? %>
+      <% if current_user.superadmin? %>
         <div class="row mb-3 mt-1">
-          <% @ticket.attributes.each do |key, value| %>
-            <% if ["statue", "category", "priority", "impact", "confidence", "ease"].include?(key) %>
-              <button type="button" class="btn btn-primary btn-sm" style="margin-left: 15px">
-                <%= key %> <span class="badge badge-light"><%= value %></span>
-              </button>
-            <% end %>
-          <% end %>
+          <%# @ticket.attributes.each do |key, value| %>
+            <%# if ["statue", "category", "priority", "impact", "confidence", "ease"].include?(key) %>
+<!--              <button type="button" class="btn btn-primary btn-sm" style="margin-left: 15px">-->
+<!--                <%#= key %> <span class="badge badge-light"><%#= value %></span>-->
+<!--              </button>-->
+            <%# end %>
+          <%# end %>
+          <%= render partial: 'status_badge', locals: { ticket: @ticket} %>
+          <%= render partial: 'category_badge', locals: { ticket: @ticket} %>
+          <%= render partial: 'priority_badge', locals: { ticket: @ticket} %>
         </div>
-      <%# end %>
+      <% end %>
       
       <p class="card-text ticket-row"><%= @ticket.text %></p>
 

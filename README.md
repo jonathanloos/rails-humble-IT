@@ -30,6 +30,12 @@ Rails.application.routes.draw do
 end
 ```
 ##Entra Dependencies
+You will require the following gems:
+```ruby
+gem 'pg_search'
+```
+
+You will also need to install Action Text and Active Storage:
 ````bash
 $ rails action_text:install
 ````

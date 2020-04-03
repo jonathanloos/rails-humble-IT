@@ -1,0 +1,6 @@
+<% badge_class = { low: 'badge-light', medium: 'badge-info', high: 'badge-warning', urgent: 'badge-danger' } %>
+<% if ticket.priority.nil? %>
+    <span class="badge badge-secondary badge-pill">priority unassigned</span>
+<% else %>
+    <span class="badge <%= badge_class[ticket.priority.to_sym] %> badge-pill"><%= ticket.priority %></span>
+<% end %>

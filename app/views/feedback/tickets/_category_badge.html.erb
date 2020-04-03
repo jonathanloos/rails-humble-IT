@@ -1,0 +1,7 @@
+<% badge_class = { uncategorized: 'badge-light', support: 'badge-primary', question: 'badge-info', feature: 'badge-success', bug: 'badge-danger' } %>
+
+<% if ticket.category.nil? %>
+    <span class="badge badge-secondary badge-pill">category unassigned</span>
+<% else %>
+    <span class="badge <%= badge_class[ticket.category.to_sym] %> badge-pill"><%= ticket.category %></span>
+<% end %>

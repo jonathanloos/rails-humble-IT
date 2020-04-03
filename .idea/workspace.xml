@@ -2,21 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abfe5b46-0c2d-4242-b988-3709902ecf8e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/reset.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/javascripts/feedback/feedbackFilter_controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/feedback/tickets/_category_badge.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/feedback/tickets/_priority_badge.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/feedback/tickets/_status_badge.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/feedback.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/feedback.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/feedback/comments_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/feedback/comments_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/feedback/tickets_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/feedback/tickets_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/feedback/comment.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/feedback/comment.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/feedback/ticket.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/feedback/ticket.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/feedback/comments/_comment.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/feedback/comments/_comment.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/feedback/comments/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/feedback/comments/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/policies/ticket_policy.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/policies/ticket_policy.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/feedback/tickets/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/feedback/tickets/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/feedback/tickets/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/feedback/tickets/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/feedback/tickets/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/feedback/tickets/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/dummy/db/development.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/test/dummy/db/development.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/dummy/log/development.log" beforeDir="false" afterPath="$PROJECT_DIR$/test/dummy/log/development.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/feedback/engine.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/feedback/engine.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +46,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/views/feedback/tickets" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -51,6 +54,16 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/assets/javascripts/feedback" />
+      <recent name="$PROJECT_DIR$/app/assets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/feedback/tickets" />
+      <recent name="$PROJECT_DIR$/app/javascripts" />
+    </key>
   </component>
   <component name="RunManager" selected="Rails.Development: feedback">
     <configuration name="Development: feedback" type="RailsRunConfigurationType" factoryName="Rails">
@@ -163,7 +176,7 @@
       <option name="presentableId" value="Default" />
       <updated>1585751733925</updated>
       <workItem from="1585751735998" duration="1014000" />
-      <workItem from="1585835997151" duration="3512000" />
+      <workItem from="1585835997151" duration="21558000" />
     </task>
     <servers />
   </component>
@@ -171,13 +184,13 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="544" y="301" width="703" height="518" key="find.popup" timestamp="1585836495211">
+    <state x="544" y="301" width="703" height="518" key="find.popup" timestamp="1585923346733">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="544" y="301" width="703" height="518" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1585836495211" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1585838557962">
+    <state x="544" y="301" width="703" height="518" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1585923346733" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1585937420090">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1585838557962" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1585937420090" />
   </component>
 </project>

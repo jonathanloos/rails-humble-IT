@@ -1,0 +1,2 @@
+<% badge_class = { pending: 'badge-info', in_progress: 'badge-success', closed: 'badge-primary', need_more_info: 'badge-warning' } %>
+<span class="badge <%= badge_class[ticket.status.to_sym] %> badge-pill"><%= ticket.status %></span>

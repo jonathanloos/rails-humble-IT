@@ -1,22 +1,81 @@
 <div class="container tester">
   <div class="card">
     <div class="card-body">
-      <h1 class="card-title">Feedback</h1>
-
-      <%= link_to 'New Ticket', new_ticket_path, class: "btn btn-primary" %>
+      <div class="row">
+        <div class="col-10">
+          <h1 class="card-title">Feedback</h1>
+          <p>Open Feedback Count: <%= Feedback::Ticket.where.not(status: :closed).all.count %></p>
+          <p><strong>We support comments!</strong> Start a discussion on a ticket that is already logged rather than creating a new one.</p>
+        </div>
+        <div class="col-2">
+          <%= link_to 'New Ticket', new_ticket_path, class: "btn btn-primary float-right" %>
+        </div>
+      </div>
       <hr class="my-4">
       <div class="row">
-<!--        <div class="col-2 border-right">-->
-<!--          <h5>Filters</h5>-->
-<!--        </div>-->
-        <div class="col-12">
-          <div class="row ml-1">
-            <!--        TODO: Add Search Bar-->
-            <h5>Tickets</h5>
+        <div class="col-2 border-right">
+          <div x-data="filterValues()">
+            <%= bootstrap_form_tag url: tickets_path, method: :get, html: {data: {controller: "feedbackFilter"}} do |f| %>
+              <%= f.select :status, options_for_select(Feedback::Ticket.statuses.keys.map { |k| [k.humanize, k] }, params[:status]), {prompt: 'status'}, {class: 'select-initial-height', "x-model" => "status", "@change" => "reload()"} %>
+              <%= f.select :priority, options_for_select(Feedback::Ticket.priorities.keys.map { |k| [k.humanize, k] }, params[:priority]), {prompt: 'priority'}, {class: 'select-initial-height', "x-model" => "priority", "@change" => "reload()"} %>
+              <%= f.select :category, options_for_select(Feedback::Ticket.categories.keys.map { |k| [k.humanize, k] }, params[:category]), {prompt: 'category'}, {class: 'select-initial-height', "x-model" => "category", "@change" => "reload()"} %>
+              <%= f.select :assignee, options_for_select(User.where(id: Feedback::Ticket.all.distinct(:owner).pluck(:owner_id)).map { |u| [u.name, u.id] }, params[:assignee]), {prompt: 'assignee'}, {class: 'select-initial-height', "x-model" => "assignee", "@change" => "reload()"} %>
+              <%= f.select :requester, options_for_select(User.where(id: Feedback::Ticket.all.distinct(:user).pluck(:user_id)).map { |u| [u.name, u.id] }, params[:requester]), {prompt: 'requester'}, {class: 'select-initial-height', "x-model" => "requester", "@change" => "reload()"} %>
+              <%= f.select :order, options_for_select(['priority', 'created_at', 'ice_score'], params[:order]), {prompt: 'sort'}, {class: 'select-initial-height', "x-model" => "order", "@change" => "reload()"} %>
+            <% end %>
+            <script>
+                function filterValues(value) {
+                    var urlParams = new URLSearchParams(window.location.search);
+                    return {
+                        status: urlParams.get('status') || '',
+                        priority: urlParams.get('priority') || '',
+                        category: urlParams.get('category') || '',
+                        assignee: urlParams.get('assignee') || '',
+                        requester: urlParams.get('requester') || '',
+                        order: urlParams.get('order') || '',
+                        q: urlParams.get('q') || '',
+                        reload() {
+                            var params = [];
+                            if (this.status != "") {
+                                params.push(`status=${this.status}`)
+                            }
+                            if (this.category != "") {
+                                params.push(`category=${this.category}`)
+                            }
+                            if (this.priority != "") {
+                                params.push(`priority=${this.priority}`)
+                            }
+                            if (this.assignee != "") {
+                                params.push(`assignee=${this.assignee}`)
+                            }
+                            if (this.requester != "") {
+                                params.push(`requester=${this.requester}`)
+                            }
+                            if (this.q != "") {
+                                params.push(`search=${this.search}`)
+                            }
+                            if (this.order != "") {
+                                params.push(`order=${this.order}`)
+                            }
+                            location.href = '?' + params.join('&')
+                        }
+                    }
+                }
+            </script>
+          </div>
+        </div>
+        <div class="col-10">
+          <div class="row mb-2">
+            <div class="col-12">
+              <%= bootstrap_form_tag url: tickets_path, method: :get, layout: :inline, html: {data: {controller: "feedbackFilter"}} do |f| %>
+                <%= f.text_field :q, hide_label: true, placeholder: 'Search by id or text', value: params[:q], "x-model" => "q", "@blur" => "reload()" %>
+                <%= link_to 'Clear Filters', tickets_path(@ticket), class: "btn btn-primary ml-2" %>
+              <% end %>
+            </div>
           </div>
           <% @tickets.order("created_at DESC").each do |ticket| %>
-            <%= link_to ticket_path(ticket), style: "text-decoration: none;" do %>
-              <div class="row ticket-row ml-1">
+            <%= link_to ticket_path(ticket), style: "text-decoration: none;", class:"list-group-item list-group-item-action flex-column align-items-start" do %>
+              <div class="row">
                 <div class="col-1">
                   <%= render partial: 'state', locals: {ticket: ticket} %>
                 </div>
@@ -36,7 +95,6 @@
                 </div>
               </div>
             <% end %>
-            <hr class="my-4">
           <% end %>
         </div>
       </div>
