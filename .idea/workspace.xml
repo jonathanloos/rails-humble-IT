@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abfe5b46-0c2d-4242-b988-3709902ecf8e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/assets/javascripts/feedback/feedbackFilter_controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/feedback/tickets/_category_badge.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/feedback/tickets/_priority_badge.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/feedback/tickets/_status_badge.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/feedback.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/feedback.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/feedback/tickets_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/feedback/tickets_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/feedback/ticket.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/feedback/ticket.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/policies/ticket_policy.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/policies/ticket_policy.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/feedback/tickets/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/feedback/tickets/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/feedback/tickets/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/feedback/tickets/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/feedback/tickets/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/feedback/tickets/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/feedback/engine.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/feedback/engine.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,9 +173,9 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="544" y="301" width="703" height="518" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1585923346733" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1585937420090">
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1585940238915">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1585937420090" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1585940238915" />
   </component>
 </project>

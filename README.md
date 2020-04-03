@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     ...
 end
 ```
-##Entra Dependencies
+##Dependencies
 You will require the following gems:
 ```ruby
 gem 'pg_search'

@@ -1,5 +1,5 @@
-module Feedback
-  class TicketPolicy < ApplicationPolicy
+# module Feedback
+  class Feedback::TicketPolicy < ApplicationPolicy
     def show?
       true
     end
@@ -36,4 +36,4 @@ module Feedback
       true
     end
   end
-end
+# end
