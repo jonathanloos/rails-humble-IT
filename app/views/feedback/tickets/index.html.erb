@@ -76,7 +76,7 @@
           <% @tickets.order("created_at DESC").each do |ticket| %>
             <%= link_to ticket_path(ticket), style: "text-decoration: none;", class:"list-group-item list-group-item-action flex-column align-items-start" do %>
               <div class="row">
-                <div class="col-1">
+                <div class="col-1 text-center">
                   <%= render partial: 'state', locals: {ticket: ticket} %>
                 </div>
                 <div class="col-11">
