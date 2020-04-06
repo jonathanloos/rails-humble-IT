@@ -62,7 +62,7 @@ module Feedback
 
     # GET /tickets/1/edit
     def edit
-      authorize @ticket
+      skip_authorization
     end
 
     # POST /tickets
@@ -86,7 +86,7 @@ module Feedback
 
     # PATCH/PUT /tickets/1
     def update
-      authorize @ticket
+      skip_authorization
       if @ticket.update(ticket_params)
         redirect_to @ticket, notice: 'Ticket was successfully updated.'
       else

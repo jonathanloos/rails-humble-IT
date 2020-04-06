@@ -13,7 +13,7 @@
     end
 
     def update?
-      @user.superadmin?
+      @user.superadmin? || @ticket.user == current_user
     end
 
     def edit?
