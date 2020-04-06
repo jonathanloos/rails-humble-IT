@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="abfe5b46-0c2d-4242-b988-3709902ecf8e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/feedback/ticket.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/feedback/ticket.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/feedback/tickets/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/feedback/tickets/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200330193234_create_feedback_comments.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200330193234_create_feedback_comments.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/feedback/comments_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/feedback/comments_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/feedback/tickets_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/feedback/tickets_controller.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,13 +41,13 @@
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/assets/javascripts/feedback" />
-      <recent name="$PROJECT_DIR$/app/assets" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/views/feedback/tickets" />
       <recent name="$PROJECT_DIR$/app/javascripts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/assets/javascripts/feedback" />
+      <recent name="$PROJECT_DIR$/app/assets" />
     </key>
   </component>
   <component name="RunManager" selected="Rails.Development: feedback">
@@ -164,7 +163,7 @@
       <workItem from="1585751735998" duration="1014000" />
       <workItem from="1585835997151" duration="21558000" />
       <workItem from="1586177004837" duration="1782000" />
-      <workItem from="1586207994028" duration="1318000" />
+      <workItem from="1586207994028" duration="1653000" />
     </task>
     <servers />
   </component>

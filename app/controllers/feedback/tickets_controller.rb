@@ -69,7 +69,6 @@ module Feedback
     def create
       skip_authorization
       @ticket = Ticket.new(ticket_params)
-      @ticket.attachments.attach(params[:ticket][:attachments])
       @ticket.user = current_user
       skip_policy_scope
 
