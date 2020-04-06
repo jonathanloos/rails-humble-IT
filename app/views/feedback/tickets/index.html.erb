@@ -73,6 +73,9 @@
               <% end %>
             </div>
           </div>
+          <% if @tickets.empty? %>
+            <h3>Looks like there isn't any feedback yet, be the first to log a ticket!</h3>
+          <% end %>
           <% @tickets.order("created_at DESC").each do |ticket| %>
             <%= link_to ticket_path(ticket), style: "text-decoration: none;", class:"list-group-item list-group-item-action flex-column align-items-start" do %>
               <div class="row">

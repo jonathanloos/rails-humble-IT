@@ -9,6 +9,10 @@ module Feedback
     belongs_to :user, optional: true
 
     pg_search_scope :search_all,
+                    using: {
+                        tsearch: { prefix: true },
+                        trigram: { threshold: 0.3 },
+                    },
                     associated_against: {
                         rich_text_text: [:body],
                         # feedback_comments: [:text]
