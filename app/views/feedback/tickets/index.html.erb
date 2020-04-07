@@ -34,7 +34,7 @@
                         requester: urlParams.get('requester') || '',
                         order: urlParams.get('order') || '',
                         q: urlParams.get('q') || '',
-                        reload() {
+                        reload: function() {
                             var params = [];
                             if (this.status != "") {
                                 params.push(`status=${this.status}`)
