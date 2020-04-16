@@ -6,10 +6,11 @@
         <p class="lead"><strong>We support comments!</strong> Start a discussion on a ticket that is already logged
           rather than creating a new one.</p>
         <hr class="my-4">
+        <small class="text-muted m-0">Open Feedback Count: <%= Feedback::Ticket.where.not(status: :closed).all.count %></small>
+
         <%= bootstrap_form_tag url: tickets_path, method: :get, layout: :inline, html: {data: {controller: "feedbackFilter"}} do |f| %>
           <%= f.text_field :q, hide_label: true, placeholder: 'Search by id or text', value: params[:q], "x-model" => "q", "@blur" => "reload()" %>
         <% end %>
-        <p class="text-muted m-0">Open Feedback Count: <%= Feedback::Ticket.where.not(status: :closed).all.count %></p>
       </div>
       <div class="col-5">
         <%= image_tag asset_url('feedback/undraw_collaborators_prrw.svg'), style: 'width: auto; max-height: 250px', class: 'float-right' %>
@@ -17,11 +18,11 @@
     </div>
   </div>
 
-  <div class="card">
+  <div class="card position-relative">
     <div class="card-body">
       <div class="row">
-        <div class="col-2 border-right">
-          <div x-data="filterValues()">
+        <div class="col-2">
+          <div x-data="filterValues()" class="position-relative">
             <%= bootstrap_form_tag url: tickets_path, method: :get do |f| %>
               <%= f.select :status, options_for_select(Feedback::Ticket.statuses.keys.map { |k| [k.humanize, k] }, params[:status]), {prompt: 'status'}, {class: 'select-initial-height', "x-model" => "status", "@change" => "reload()"} %>
               <%= f.select :priority, options_for_select(Feedback::Ticket.priorities.keys.map { |k| [k.humanize, k] }, params[:priority]), {prompt: 'priority'}, {class: 'select-initial-height', "x-model" => "priority", "@change" => "reload()"} %>
@@ -29,10 +30,10 @@
               <%= f.select :assignee, options_for_select(User.where(id: Feedback::Ticket.all.distinct(:owner).pluck(:owner_id)).map { |u| [u.name, u.id] }, params[:assignee]), {prompt: 'assignee'}, {class: 'select-initial-height', "x-model" => "assignee", "@change" => "reload()"} %>
               <%= f.select :requester, options_for_select(User.where(id: Feedback::Ticket.all.distinct(:user).pluck(:user_id)).map { |u| [u.name, u.id] }, params[:requester]), {prompt: 'requester'}, {class: 'select-initial-height', "x-model" => "requester", "@change" => "reload()"} %>
               <%= f.select :order, options_for_select(['priority', 'created_at', 'ice_score'], params[:order]), {prompt: 'sort'}, {class: 'select-initial-height', "x-model" => "order", "@change" => "reload()"} %>
-              <%= link_to 'New Ticket', new_ticket_path, class: "btn btn-primary float-right" %>
+              <%= link_to 'Clear Filters', tickets_path(@ticket), class: "btn btn-primary" %>
             <% end %>
             <script>
-                function filterValues(value) {
+                function filterValues() {
                     var urlParams = new URLSearchParams(window.location.search);
                     return {
                         status: urlParams.get('status') || '',
@@ -73,14 +74,19 @@
           </div>
         </div>
         <div class="col-10">
-          <p class="text-muted mb-4">Showing <%= @tickets.count %> results.<span class="float-right"><%= link_to 'Clear Filters', tickets_path(@ticket), class: "btn btn-primary" %></span></p>
+          <%= link_to new_ticket_path, class: "float-right" do %>
+            <i class="fas fa-plus-circle h3"  data-container="body" data-toggle="popover" data-placement="top" data-content="Create a new feedback ticket!"></i>
+          <% end %>
+          <p class="text-muted mb-4">Showing <%= @tickets.count %> results.</p>
           <% if @tickets.empty? %>
-            <h3>Looks like there isn't any feedback yet, be the first to log a ticket!</h3>
+            <h3>These aren't the droids you're looking for...</h3>
+            <p class="text-muted">There are no feedback tickets matching your results</p>
           <% end %>
           <% @tickets.order("created_at DESC").each do |ticket| %>
             <%= link_to ticket_path(ticket), style: "text-decoration: none;", class: "list-group-item list-group-item-action flex-column align-items-start" do %>
               <div class="row">
                 <div class="col-1 text-center">
+                  <small class="text-muted">#<%= ticket.id %></small>
                   <%= render partial: 'state', locals: {ticket: ticket} %>
                 </div>
                 <div class="col-11">
@@ -88,7 +94,7 @@
                     <p class="text-muted mb-0"><%= ticket.user %></p>
                   </div>
                   <div class="row">
-                    <h5>Feedback <%= ticket.id %>: <%= strip_tags(ticket.text.to_s).truncate(128) %></h5>
+                    <h6><%= strip_tags(ticket.text.to_s).truncate(128) %></h6>
                   </div>
                   <div class="row">
                     <p class="text-muted">
@@ -100,6 +106,9 @@
               </div>
             <% end %>
           <% end %>
+          <div class="row justify-content-center mt-4">
+            <%== pagy_bootstrap_nav(@pagy) %>
+          </div>
         </div>
       </div>
     </div>

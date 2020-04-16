@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abfe5b46-0c2d-4242-b988-3709902ecf8e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/assets/images/feedback/undraw_collaborators_prrw.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/config/feedback_manifest.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/config/feedback_manifest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/feedback/feedbackFilter_controller.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/feedback/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/feedback/application.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/feedback/tickets.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/feedback/tickets.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/feedback/comments/_comment.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/feedback/comments/_comment.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/feedback/tickets/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/feedback/tickets/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/feedback/engine.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/feedback/engine.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/feedback/version.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/feedback/version.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/feedback/tickets/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/feedback/tickets/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,6 +167,8 @@
       <workItem from="1586177004837" duration="1782000" />
       <workItem from="1586207994028" duration="5295000" />
       <workItem from="1586282671051" duration="556000" />
+      <workItem from="1586955535699" duration="4600000" />
+      <workItem from="1587047942754" duration="2972000" />
     </task>
     <servers />
   </component>
@@ -183,9 +180,9 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="544" y="301" width="703" height="518" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1586261538478" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1586875052469">
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1587055790450">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1586875052469" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1587055790450" />
   </component>
 </project>
