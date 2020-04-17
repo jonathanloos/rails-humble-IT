@@ -1,16 +1,17 @@
 <div class="container">
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Feedback: <%= @ticket.id%></h5>
       <% if current_user.superadmin? %>
         <%= link_to 'Edit', edit_ticket_path(@ticket), class: "btn btn-primary float-right" %>
       <% end %>
+      <h5 class="card-title">Feedback: <%= @ticket.id%></h5>
       <h6 class="card-subtitle mb-2 text-muted"><%= @ticket.user %></h6>
       <% if current_user.superadmin? %>
         <div class="row mb-3 mt-1">
-          <%= render partial: 'status_badge', locals: { ticket: @ticket} %>
-          <%= render partial: 'category_badge', locals: { ticket: @ticket} %>
-          <%= render partial: 'priority_badge', locals: { ticket: @ticket} %>
+          <div class="col-12">
+            <%= render partial: 'category_badge', locals: { ticket: @ticket} %>
+            <%= render partial: 'priority_badge', locals: { ticket: @ticket} %>
+          </div>
         </div>
       <% end %>
       
@@ -20,7 +21,7 @@
         <li><%= link_to attachment.filename, main_app.rails_blob_path(attachment, disposition: "attachment") %></li>
       <% end %>
 
-      <p class="text-muted">Status: <%= @ticket.status.humanize%></p>
+      <p class="text-muted">Currently <%= @ticket.status.humanize%>. <%= @ticket.owner.present? ? (@ticket.owner.to_s + ' is working on it!') : 'No one assigned to ticket yet.'%></p>
       <% if @ticket.comments.any? %>
         <h5 style="color: #428bca">Comments: </h5>
         <%= render @ticket.comments.order(:created_at) %>

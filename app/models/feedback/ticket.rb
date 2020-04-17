@@ -7,6 +7,7 @@ module Feedback
     has_many_attached :attachments
 
     belongs_to :user, optional: true
+    belongs_to :owner, class_name: :User, foreign_key: :owner_id, optional: true
 
     pg_search_scope :search_all,
                     using: {

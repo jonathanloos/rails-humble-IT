@@ -21,7 +21,7 @@
   <div class="card position-relative">
     <div class="card-body">
       <div class="row">
-        <div class="col-2">
+        <div class="col-md-2">
           <div x-data="filterValues()" class="position-relative">
             <%= bootstrap_form_tag url: tickets_path, method: :get do |f| %>
               <%= f.select :status, options_for_select(Feedback::Ticket.statuses.keys.map { |k| [k.humanize, k] }, params[:status]), {prompt: 'status'}, {class: 'select-initial-height', "x-model" => "status", "@change" => "reload()"} %>
@@ -73,7 +73,7 @@
             </script>
           </div>
         </div>
-        <div class="col-10">
+        <div class="col-md-10">
           <%= link_to new_ticket_path, class: "float-right" do %>
             <i class="fas fa-plus-circle h3"  data-container="body" data-toggle="popover" data-placement="top" data-content="Create a new feedback ticket!"></i>
           <% end %>
@@ -85,11 +85,11 @@
           <% @tickets.order("created_at DESC").each do |ticket| %>
             <%= link_to ticket_path(ticket), style: "text-decoration: none;", class: "list-group-item list-group-item-action flex-column align-items-start" do %>
               <div class="row">
-                <div class="col-1 text-center">
+                <div class="col-md-1 text-center">
                   <small class="text-muted">#<%= ticket.id %></small>
                   <%= render partial: 'state', locals: {ticket: ticket} %>
                 </div>
-                <div class="col-11">
+                <div class="col-md-9">
                   <div class="row">
                     <p class="text-muted mb-0"><%= ticket.user %></p>
                   </div>
@@ -102,6 +102,12 @@
                       <%= ticket.comments.count %> comments.
                     </p>
                   </div>
+                </div>
+                <div class="col-md-2 text-center align-middle text-primary">
+                    <h3 class="m-0">
+                      <i class="fas fa-user-circle <%= 'text-muted' if ticket.owner.nil? %>"></i>
+                    </h3>
+                    <small class="text-muted"><%= ticket.owner.present? ? ticket.owner : 'No one' %> assigned.</small>
                 </div>
               </div>
             <% end %>
