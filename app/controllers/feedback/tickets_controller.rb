@@ -11,8 +11,6 @@ module Feedback
       # status, defualt to not closed
       if params[:status].present?
         @tickets = @tickets.where(status: params[:status])
-      else
-        @tickets = @tickets.where.not(status: :closed)
       end
 
       # priority, defualt to not closed
