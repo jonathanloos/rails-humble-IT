@@ -1,0 +1,28 @@
+<%= link_to feedback.ticket_path(ticket), style: "text-decoration: none;", class: "list-group-item list-group-item-action flex-column align-items-start" do %>
+  <div class="row">
+    <div class="col-md-1 text-center">
+      <small class="text-muted">#<%= ticket.id %></small>
+      <%= render partial: 'feedback/tickets/state', locals: {ticket: ticket} %>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <p class="text-muted mb-0"><%= ticket.user %></p>
+      </div>
+      <div class="row">
+        <h6><%= strip_tags(ticket.text.to_s).truncate(128) %></h6>
+      </div>
+      <div class="row">
+        <p class="text-muted">
+          <%= time_ago_in_words(ticket.created_at) %> ago :
+          <%= ticket.comments.count %> comments.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-2 text-center align-middle text-primary">
+      <h3 class="m-0">
+        <i class="fas fa-user-circle <%= 'text-muted' if ticket.owner.nil? %>"></i>
+      </h3>
+      <small class="text-muted"><%= ticket.owner.present? ? ticket.owner : 'No one' %> assigned.</small>
+    </div>
+  </div>
+<% end %>

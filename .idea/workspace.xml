@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abfe5b46-0c2d-4242-b988-3709902ecf8e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/views/feedback/tickets/_ticket_row.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/feedback/tickets/_ticket_row_external.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/feedback/tickets_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/feedback/tickets_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/feedback/tickets/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/feedback/tickets/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/feedback/tickets/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/feedback/tickets/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/feedback/version.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/feedback/version.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +173,8 @@
       <workItem from="1587047942754" duration="3359000" />
       <workItem from="1587129243677" duration="3501000" />
       <workItem from="1587164583932" duration="1626000" />
-      <workItem from="1587384142139" duration="917000" />
+      <workItem from="1587384142139" duration="1384000" />
+      <workItem from="1587471888114" duration="4467000" />
     </task>
     <servers />
   </component>
@@ -181,9 +186,9 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="544" y="301" width="703" height="518" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1586261538478" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1587171282687">
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1587501135979">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1587171282687" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1587501135979" />
   </component>
 </project>
