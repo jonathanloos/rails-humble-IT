@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abfe5b46-0c2d-4242-b988-3709902ecf8e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/feedback/tickets/_ticket_row.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/feedback/tickets/_ticket_row_external.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/feedback/tickets/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/feedback/tickets/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/feedback/tickets/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/feedback/tickets/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/feedback/version.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/feedback/version.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/feedback/tickets/_ticket_row_external.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/feedback/tickets/_ticket_row_external.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +171,8 @@
       <workItem from="1587129243677" duration="3501000" />
       <workItem from="1587164583932" duration="1626000" />
       <workItem from="1587384142139" duration="1384000" />
-      <workItem from="1587471888114" duration="4467000" />
+      <workItem from="1587471888114" duration="4552000" />
+      <workItem from="1587556840398" duration="410000" />
     </task>
     <servers />
   </component>
