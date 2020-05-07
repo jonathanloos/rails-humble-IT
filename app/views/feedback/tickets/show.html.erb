@@ -3,6 +3,7 @@
     <div class="card-body">
       <% if current_user.superadmin? %>
         <%= link_to 'Edit', edit_ticket_path(@ticket), class: "btn btn-primary float-right" %>
+        <%= link_to 'Delete', ticket_path(@ticket), method: :delete, class: 'btn btn-danger float-right'%>
       <% end %>
       <h5 class="card-title">Feedback: <%= @ticket.id%></h5>
       <h6 class="card-subtitle mb-2 text-muted"><%= @ticket.user %></h6>
