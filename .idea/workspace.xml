@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="abfe5b46-0c2d-4242-b988-3709902ecf8e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/feedback/tickets/_ticket_row_external.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/feedback/tickets/_ticket_row_external.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/feedback/version.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/feedback/version.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +176,20 @@
       <workItem from="1587730972828" duration="793000" />
       <workItem from="1588167025279" duration="531000" />
       <workItem from="1588253531008" duration="2911000" />
-      <workItem from="1588264082989" duration="2735000" />
+      <workItem from="1588264082989" duration="3531000" />
+      <workItem from="1588289254293" duration="575000" />
+      <workItem from="1588296073583" duration="488000" />
+      <workItem from="1588340462310" duration="160000" />
+      <workItem from="1588561919082" duration="1754000" />
+      <workItem from="1588682813783" duration="417000" />
+      <workItem from="1588784541064" duration="339000" />
+      <workItem from="1588852491440" duration="822000" />
+      <workItem from="1588856340375" duration="564000" />
+      <workItem from="1588860122203" duration="1289000" />
+      <workItem from="1588941619105" duration="455000" />
+      <workItem from="1588983884812" duration="368000" />
+      <workItem from="1589048056458" duration="153000" />
+      <workItem from="1589203464574" duration="72000" />
     </task>
     <servers />
   </component>
@@ -185,13 +197,13 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="544" y="301" width="703" height="518" key="find.popup" timestamp="1586261538478">
+    <state x="544" y="301" width="703" height="518" key="find.popup" timestamp="1588874007765">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="544" y="301" width="703" height="518" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1586261538478" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1588271684770">
+    <state x="544" y="301" width="703" height="518" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1588874007765" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1588856346978">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1588271684770" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1588856346978" />
   </component>
 </project>
