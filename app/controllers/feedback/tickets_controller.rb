@@ -63,7 +63,6 @@ module Feedback
     def create
       @ticket = Ticket.new(ticket_params)
       @ticket.user = current_user
-      skip_policy_scope
 
       respond_to do |format|
         if @ticket.save
