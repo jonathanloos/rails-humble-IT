@@ -5,11 +5,11 @@ require "feedback/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
-  spec.name        = "rails-humble-IT"
+  spec.name        = "feedback"
   spec.version     = Feedback::VERSION
   spec.authors     = ["Jonathan Loos"]
   spec.email       = ["jonathanloos97@gmail.com"]
-  spec.homepage    = "https://github.com/jonathanloos/sitrep"
+  spec.homepage    = "https://github.com/jonathanloos/rails-humble-IT"
   spec.summary     = "A simple ticketing system to bridge the gap between user and tech support."
   spec.description = "Humble IT is the practice of putting your users needs first and maintaining a healthy community within your application. While not a full Jira replacement, this gem provides the baseline flow to manage tickets submitted by users."
   spec.license     = "MIT"
@@ -28,5 +28,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails", "~> 6.1.4", ">= 6.1.4"
 
-  spec.add_development_dependency "sqlite3"
+  spec.add_development_dependency "pg"
 end

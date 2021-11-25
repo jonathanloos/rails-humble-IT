@@ -1,14 +1,15 @@
 # Feedback
 Short description and motivation.
 
-## Usage
-How to use my plugin.
-
-## Installation
+## Dependencies
+This gem requires the following dependencies to function properly:
+1. PostgreSQL Database -> Specifically will require the installation of `gem 'pg_search` on your main project.
+2. Pundit
+## 🚀 Installation
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'feedback'
+gem 'rails-humble-IT', '0.1.4', git: 'https://github.com/jonathanloos/rails-humble-IT'
 ```
 
 And then execute:
@@ -16,20 +17,15 @@ And then execute:
 $ bundle
 ```
 
-Or install it yourself as:
-```bash
-$ gem install feedback
-```
-
-##Routing
-In your main application's 'routes.rb' file, add the following:
+## Routing
+In your main application's routing file, add the following:
 ```bash
 Rails.application.routes.draw do
     mount Feedback::Engine, at: "/feedback" <-- ADD
     ...
 end
 ```
-##Dependencies
+## Dependencies
 You will require the following gems:
 ```ruby
 gem 'pg_search'
@@ -45,6 +41,9 @@ $ rails active_storage:install
 ````bash
 $ rails db:migrate
 ````
+
+## Usage
+How to use my plugin.
 ## Contributing
 Contribution directions go here.
 
