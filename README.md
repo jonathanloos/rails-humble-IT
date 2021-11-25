@@ -1,10 +1,7 @@
 # Feedback
-Short description and motivation.
+**A simple ticketing system to bridge the gap between user and tech support.** 
+Humble IT is the practice of putting your users needs first and maintaining a healthy community within your platform. This gem provides the baseline flow to manage tickets submitted by users.
 
-## Dependencies
-This gem requires the following dependencies to function properly:
-1. PostgreSQL Database -> Specifically will require the installation of `gem 'pg_search` on your main project.
-2. Pundit
 ## 🚀 Installation
 Add this line to your application's Gemfile:
 
@@ -28,7 +25,9 @@ end
 ## Dependencies
 You will require the following gems:
 ```ruby
+gem 'pg'
 gem 'pg_search'
+gem 'pagy'
 ```
 
 You will also need to install Action Text and Active Storage:

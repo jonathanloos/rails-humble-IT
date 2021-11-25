@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails-humble-IT (0.1.4)
+    feedback (0.1.4)
       rails (~> 6.1.4, >= 6.1.4)
 
 GEM
@@ -124,8 +124,6 @@ GEM
     pghero (2.8.1)
       activerecord (>= 5)
     popper_js (1.16.0)
-    pundit (2.1.1)
-      activesupport (>= 3.0.0)
     racc (1.6.0)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -174,7 +172,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     thor (1.1.0)
     tilt (2.0.10)
     to_duration (1.2.1)
@@ -198,16 +195,14 @@ DEPENDENCIES
   bootstrap_form (>= 4.2.0)
   browser (~> 2.6, >= 2.6.1)
   byebug
+  feedback!
   font-awesome-sass (~> 5.8.1)
   pagy
   pg
   pg_query (>= 0.9.0)
   pg_search
   pghero
-  pundit
-  rails-humble-IT!
   sass-rails
-  sqlite3
   to_duration
   trix
 

@@ -29,4 +29,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", "~> 6.1.4", ">= 6.1.4"
 
   spec.add_development_dependency "pg"
+  spec.add_development_dependency "pg_search"
+  spec.add_development_dependency "pagy"
 end

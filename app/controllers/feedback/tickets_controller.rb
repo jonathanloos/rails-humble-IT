@@ -44,28 +44,23 @@ module Feedback
       end
 
       @pagy, @tickets = pagy @tickets
-      skip_policy_scope
     end
 
     # GET /tickets/1
     def show
-      skip_authorization
     end
 
     # GET /tickets/new
     def new
       @ticket = Ticket.new
-      skip_authorization
     end
 
     # GET /tickets/1/edit
     def edit
-      skip_authorization
     end
 
     # POST /tickets
     def create
-      skip_authorization
       @ticket = Ticket.new(ticket_params)
       @ticket.user = current_user
       skip_policy_scope
@@ -83,7 +78,6 @@ module Feedback
 
     # PATCH/PUT /tickets/1
     def update
-      skip_authorization
       if @ticket.update(ticket_params)
         redirect_to @ticket, notice: 'Ticket was successfully updated.'
       else
@@ -93,7 +87,6 @@ module Feedback
 
     # DELETE /tickets/1
     def destroy
-      skip_authorization
       @ticket.destroy
       redirect_to tickets_url, notice: 'Ticket was successfully destroyed.'
     end
