@@ -43,7 +43,7 @@ module Feedback
         @tickets = @tickets.order(params[:order] => :desc)
       end
 
-      @pagy, @tickets = pagy @tickets
+      @pagy, @tickets = pagy(@tickets)
     end
 
     # GET /tickets/1
