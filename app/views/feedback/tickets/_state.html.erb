@@ -1,4 +1,4 @@
-<div class="<%= ticket.class.name.to_s %>-category" data-toggle="tooltip" data-placement="bottom" title="<%= ticket.category&.humanize %>">
+<div class="<%= ticket.class.name.to_s %>-category" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<%= ticket.category&.humanize %>">
   <% if ticket.uncategorized? %>
     <i class="fas fa-asterisk fa-2x text-primary"></i>
   <% elsif ticket.bug? %>
