@@ -1,19 +1,22 @@
-<div class="container">
-  <div class="jumbotron jumbo">
-    <div class="row">
-      <div class="col-7">
-        <h1 class="display-4">Feedback</h1>
-        <p class="lead"><strong>We support comments!</strong> Start a discussion on a ticket that is already logged
-          rather than creating a new one.</p>
-        <hr class="my-4">
-        <small class="text-muted m-0">Open Feedback Count: <%= Feedback::Ticket.where.not(status: :closed).all.count %></small>
 
-        <%= bootstrap_form_tag url: tickets_path, method: :get, layout: :inline, html: {data: {controller: "feedbackFilter"}} do |f| %>
-          <%= f.text_field :q, hide_label: true, placeholder: 'Search by id or text', value: params[:q], "x-model" => "q", "@blur" => "reload()" %>
-        <% end %>
-      </div>
-      <div class="col-5">
-        <%= image_tag asset_url('feedback/undraw_collaborators_prrw.svg'), style: 'width: auto; max-height: 250px', class: 'float-right' %>
+<div class="container">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-7">
+          <h1 class="display-4">Feedback</h1>
+          <p class="lead"><strong>We support comments!</strong> Start a discussion on a ticket that is already logged
+            rather than creating a new one.</p>
+          <hr class="my-4">
+          <small class="text-muted m-0">Open Feedback Count: <%= Feedback::Ticket.where.not(status: :closed).all.count %></small>
+
+          <%= bootstrap_form_tag url: tickets_path, method: :get, layout: :inline, html: {data: {controller: "feedbackFilter"}} do |f| %>
+            <%= f.text_field :q, hide_label: true, placeholder: 'Search by id or text', value: params[:q], "x-model" => "q", "@blur" => "reload()" %>
+          <% end %>
+        </div>
+        <div class="col-5">
+          <%= image_tag asset_url('feedback/undraw_collaborators_prrw.svg'), style: 'width: auto; max-height: 250px', class: 'float-right' %>
+        </div>
       </div>
     </div>
   </div>

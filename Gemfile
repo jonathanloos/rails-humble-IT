@@ -15,9 +15,6 @@ gemspec
 gem 'byebug', group: [:development, :test]
 gem 'better_errors', '~> 2.5', '>= 2.5.1'
 
-# pagination
-# gem 'pagy'
-
 #db
 gem 'pg_search'
 gem 'pg'
