@@ -9,3 +9,12 @@
     <%= link_to 'Back', tickets_path, class: "btn btn-light" %>
   </div>
 </div>
+
+<div class="card shadow-sm">
+  <div class="card-body p-4">
+    <h1 class="display-4">Submit a new ticket</h1>
+    <p>Thanks for taking a couple of minutes to share your ideas and experiences to help shape the platform.</p>
+    <%= render 'form', ticket: @ticket %>
+    <%= link_to 'Back', tickets_path, class: "btn btn-light" %>
+  </div>
+</div>

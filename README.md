@@ -23,13 +23,18 @@ Rails.application.routes.draw do
 end
 ```
 ## Dependencies
+### Gems
 You will require the following gems:
 ```ruby
 gem 'pg'
 gem 'pg_search'
 gem 'pagy'
+gem 'font-awesome-sass'
 ```
 
+### Style
+- Bootstrap 5
+### db
 You will also need to install Action Text and Active Storage:
 ````bash
 $ rails action_text:install

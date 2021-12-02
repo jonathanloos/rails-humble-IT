@@ -1,13 +1,12 @@
 
 <div class="container">
   <div class="card shadow-sm">
-    <div class="card-body">
+    <div class="card-body p-4">
       <div class="row">
         <div class="col-7">
           <h1 class="display-4">Feedback</h1>
-          <p class="lead"><strong>We support comments!</strong> Start a discussion on a ticket that is already logged
+          <p><strong>We support comments!</strong> Start a discussion on a ticket that is already logged
             rather than creating a new one.</p>
-          <hr class="my-4">
           <small class="text-muted m-0">Open Feedback Count: <%= Feedback::Ticket.where.not(status: :closed).all.count %></small>
 
           <%= bootstrap_form_tag url: tickets_path, method: :get, layout: :inline, html: {data: {controller: "feedbackFilter"}} do |f| %>
@@ -15,7 +14,7 @@
           <% end %>
         </div>
         <div class="col-5">
-          <%= image_tag asset_url('feedback/undraw_collaborators_prrw.svg'), style: 'width: auto; max-height: 250px' %>
+          <%= image_tag asset_url('feedback/undraw_collaborators_prrw.svg'), style: 'width: 100%; max-height: 250px' %>
         </div>
       </div>
     </div>
@@ -33,7 +32,9 @@
               <%= f.select :assignee, options_for_select(User.where(id: Feedback::Ticket.all.distinct(:owner).pluck(:owner_id)).map { |u| [u.name, u.id] }, params[:assignee]), {prompt: 'assignee'}, {class: 'select-initial-height', "x-model" => "assignee", "@change" => "reload()"} %>
               <%= f.select :requester, options_for_select(User.where(id: Feedback::Ticket.all.distinct(:user).pluck(:user_id)).map { |u| [u.name, u.id] }, params[:requester]), {prompt: 'requester'}, {class: 'select-initial-height', "x-model" => "requester", "@change" => "reload()"} %>
               <%= f.select :order, options_for_select(['priority', 'created_at', 'ice_score'], params[:order]), {prompt: 'sort'}, {class: 'select-initial-height', "x-model" => "order", "@change" => "reload()"} %>
-              <%= link_to 'Clear Filters', tickets_path(@ticket), class: "btn btn-primary" %>
+              <div class="text-center">
+                <%= link_to 'Clear Filters', tickets_path(@ticket), class: "btn btn-primary text-white mt-2" %>
+              </div>
             <% end %>
             <script>
                 function filterValues() {
@@ -77,9 +78,11 @@
           </div>
         </div>
         <div class="col-md-10">
-          <%= link_to new_ticket_path, class: "float-end btn btn-primary" do %>
-            <i class="fas fa-plus-circle h3"  data-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Create a new feedback ticket!"></i>
-          <% end %>
+          <div class="float-end">
+            <%= link_to new_ticket_path, class: "float-end btn btn-primary" do %>
+              <i class="fas fa-plus-circle h3"  data-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Create a new feedback ticket!"></i>
+            <% end %>
+          </div>
           <p class="text-muted mb-4">Showing <%= @tickets.count %> results.</p>
           <% if @tickets.empty? %>
             <h3>These aren't the droids you're looking for...</h3>
