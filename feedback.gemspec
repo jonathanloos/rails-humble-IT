@@ -5,7 +5,7 @@ require "feedback/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
-  spec.name        = "feedback"
+  spec.name        = "feedback_loop"
   spec.version     = Feedback::VERSION
   spec.authors     = ["Jonathan Loos"]
   spec.email       = ["jonathanloos97@gmail.com"]

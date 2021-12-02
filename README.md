@@ -14,7 +14,7 @@ And then execute:
 $ bundle
 ```
 
-## Routing
+## 👉 Routing
 In your main application's routing file, add the following:
 ```bash
 Rails.application.routes.draw do
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     ...
 end
 ```
-## Dependencies
+## 📚 Dependencies
 ### Gems
 You will require the following gems:
 ```ruby
@@ -46,10 +46,23 @@ $ rails active_storage:install
 $ rails db:migrate
 ````
 
-## Usage
-How to use my plugin.
+##  Usage
+To reference the `/feedback` routes wfrom within the main application, append `main_app` to the route helpers. For example:
+```ruby
+    users_path becomes -> main_app.users_path
+```
+and
+```ruby
+    `/feedback/tickets` is accessed using: feedback_app.tickets
+```
+Otherwise if you're routing through a main-app controller and are exclusively using the main applications routes you can use routes normally.
 ## Contributing
-Contribution directions go here.
+Everyone is encouraged to help improve this project. Here are a few ways you can help:
+
+- Report bugs
+- Fix bugs and submit pull requests
+- Write, clarify, or fix documentation
+- Suggest or add new features
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
