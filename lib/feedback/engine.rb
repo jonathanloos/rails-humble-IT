@@ -1,4 +1,4 @@
-module Feedback
+module FeedbackLoop
   class Engine < ::Rails::Engine
     isolate_namespace Feedback
 
